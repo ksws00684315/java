@@ -11,9 +11,33 @@ Hystrix是一个用于处理分布式系统的延迟和容错的开源库，在�
 #### 哪些情况会触发降级
 
 - 程序运行异常
+
 - 超时
+
 - 服务熔断触发服务降级
+
 - 线程池/信号量打满也会导致服务降级
+
+#### @HystrixCommand报异常后如何处理
+
+一旦调用服务方法失败并跑出了错误信息后，会自动调用@HystrixCommand标注好的fallbackMethod调用类中的指定方法
+
+
+
+@EnableHystrix 和 @@EnableCircuitBreaker这两者这件有何不同？
+
+feign ribbon Hystrix整合配置详解
+
+https://www.cnblogs.com/crazymakercircle/p/11664812.html
+
+
+
+触发降级的超时配置
+
+默认为1000ms，同时配置了多个超时时间时（注解+yml），以小的为准
+
+
+
 
 ## 服务熔断
 
