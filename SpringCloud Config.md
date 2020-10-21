@@ -21,3 +21,15 @@ SpringCloud Config分为服务端和客户端两部分。
 3. 运行期间动态调整配置，不再需要在每个服务部署的机器上编写配置文件，服务会向配置中心统一拉取配置自己的信息
 4. 当配置发生变化时，服务不需要重启即可感知到配置的变化并应用新的配置
 5. 将配置信息以REST接口的形式暴露
+
+###  bootstrap.yml
+
+application.yml是用户及的资源配置项
+
+bootstrap.yml是系统及的，优先级更加高
+
+
+
+Spring Cloud会创建一个“Bootstrap Context”，作为Spring应用的Application Context的父上下文。初始化的时候，Bootstrap Context负责从外部源加载配置属性并解析配置。这两个上下文共享一个从外部获取的Environment。
+
+Bootstrap属性有高优先级，默认情况下，它们不会被本地配置覆盖。Bootstrap context和Application Context有着不同的约定，所以新增了一个bootstrap.yml文件，保证Bootstrap Context和Application Context配置的分离。
